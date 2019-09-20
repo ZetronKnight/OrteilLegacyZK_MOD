@@ -1,5 +1,5 @@
 G.AddData({
-name:'ZKs dataset',
+name:'ZK dataset',
 author:'Orteil and ZK',
 desc:'The default dataset for Legacy with modifications made by ZetronKnight(ZK)',
 engineVersion:1,
