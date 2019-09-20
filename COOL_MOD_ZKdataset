@@ -11,7 +11,7 @@ author:'Packerfan-Gamer',
 desc:'A mod that adds cool things to the game. Currently have berries, juice, and Mass Graves (oh yes!!), and so much more!',
 engineVersion:1,
 manifest:'ModManifest.js',
-requires:['Zks dataset'],
+requires:['ZK dataset'],
 sheets:{'imageSheet':'https://i.imgur.com/lG1JKpU.png'},//custom stylesheet (note : broken in IE and Edge for the time being)
 func:function()
 	{	
