@@ -1,7 +1,7 @@
 G.AddData({
-name:'Default dataset',
-author:'Orteil',
-desc:'The default dataset for Legacy.',
+name:'ZKs dataset',
+author:'Orteil and ZK',
+desc:'The default dataset for Legacy with modifications made by ZetronKnight(ZK)',
 engineVersion:1,
 manifest:0,
 func:function()
@@ -1713,6 +1713,7 @@ func:function()
 		},
 		effects:[
 			{type:'convert',from:{'stick':17},into:{'fire pit':1},every:5,mode:'stick fires'},
+			{type:'convert',from:{'stick':10, 'coal':1},into:{'fire pit':1},every:5,mode:'coal fires'},
 			{type:'convert',from:{'meat':1,'fire pit':0.01},into:{'cooked meat':1},every:1,repeat:5,mode:'cook'},
 			{type:'convert',from:{'seafood':1,'fire pit':0.01},into:{'cooked seafood':1},every:1,repeat:5,mode:'cook'},
 			{type:'convert',from:{'meat':1,'salt':1,'fire pit':0.01},into:{'cured meat':2},every:1,repeat:10,mode:'cure'},
