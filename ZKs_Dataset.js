@@ -1706,12 +1706,13 @@ func:function()
 		upkeep:{'coin':0.1},
 		gizmos:true,
 		modes:{
-			'stick fires':{name:'Start fires from sticks',icon:[0,6,13,7],desc:'Craft [fire pit]s from 20 [stick]s each.'},
+			'stick fires':{name:'Start fires from sticks',icon:[0,6,13,7],desc:'Craft [fire pit]s. Cost: 17 [stick]s each.'},
+			'coal fires':{name:'Start fires from coal and sticks',icon:[0,6,13,7],desc:'Craft [fire pit]s. Cost: 1 [coal] and 10 [stick]s.'},
 			'cook':{name:'Cook',icon:[6,7,13,7],desc:'Turn [meat] and [seafood] into [cooked meat] and [cooked seafood] in the embers of [fire pit]s',req:{'cooking':true}},
 			'cure':{name:'Cure & smoke',icon:[11,6,12,6],desc:'Turn 1 [meat] or [seafood] into 2 [cured meat] or [cured seafood] using [salt] in the embers of [fire pit]s',req:{'curing':true}},
 		},
 		effects:[
-			{type:'convert',from:{'stick':20},into:{'fire pit':1},every:5,mode:'stick fires'},
+			{type:'convert',from:{'stick':17},into:{'fire pit':1},every:5,mode:'stick fires'},
 			{type:'convert',from:{'meat':1,'fire pit':0.01},into:{'cooked meat':1},every:1,repeat:5,mode:'cook'},
 			{type:'convert',from:{'seafood':1,'fire pit':0.01},into:{'cooked seafood':1},every:1,repeat:5,mode:'cook'},
 			{type:'convert',from:{'meat':1,'salt':1,'fire pit':0.01},into:{'cured meat':2},every:1,repeat:10,mode:'cure'},
@@ -3551,7 +3552,7 @@ func:function()
 		desc:'[grass] is a good source of [herb]s; you may also occasionally find some [fruit]s and [stick]s while foraging.',
 		icon:[10,10],
 		res:{
-			'gather':{'herb':10,'fruit':0.5,'stick':0.5},
+			'gather':{'herb':8,'fruit':0.5,'stick':0.5},
 		},
 		mult:10,
 	});
@@ -3561,7 +3562,7 @@ func:function()
 		icon:[0,10],
 		res:{
 			'chop':{'log':3,'stick':6},
-			'gather':{'stick':1},
+			'gather':{'stick':2},
 		},
 		affectedBy:['deforestation'],
 		mult:5,
@@ -3572,7 +3573,7 @@ func:function()
 		icon:[1,10],
 		res:{
 			'chop':{'log':2,'stick':4},
-			'gather':{'stick':1},
+			'gather':{'stick':2},
 		},
 		affectedBy:['deforestation'],
 		mult:5,
@@ -3583,7 +3584,7 @@ func:function()
 		icon:[2,10],
 		res:{
 			'chop':{'log':2,'stick':4},
-			'gather':{'fruit':0.3,'stick':1},
+			'gather':{'fruit':0.4,'stick':2},
 		},
 		affectedBy:['deforestation'],
 		mult:5,
@@ -3594,7 +3595,7 @@ func:function()
 		icon:[8,10],
 		res:{
 			'chop':{'log':2,'stick':4},
-			'gather':{'stick':1},
+			'gather':{'stick':2},
 		},
 		affectedBy:['deforestation'],
 		mult:5,
@@ -3605,7 +3606,7 @@ func:function()
 		icon:[3,10],
 		res:{
 			'chop':{'log':2,'stick':6},
-			'gather':{'stick':1},
+			'gather':{'stick':2},
 		},
 		affectedBy:['deforestation'],
 		mult:5,
@@ -3616,7 +3617,7 @@ func:function()
 		icon:[9,10],
 		res:{
 			'chop':{'log':1,'stick':2},
-			'gather':{'stick':0.5},
+			'gather':{'stick':1.5},
 		},
 		affectedBy:['deforestation'],
 		mult:5,
@@ -3636,7 +3637,7 @@ func:function()
 		desc:'[forest mushrooms] grow in the penumbra of the underbrush, and often yield all sorts of interesting [herb]s.',
 		icon:[5,10],
 		res:{
-			'gather':{'herb':4},
+			'gather':{'herb':3.5},
 		},
 		affectedBy:['scarce forageables'],
 		mult:10,
@@ -3646,7 +3647,7 @@ func:function()
 		desc:'Hardy cactii that grow in the desert. While tricky to harvest, [succulents] can provide [herb]s and [fruit]s.',
 		icon:[6,10],
 		res:{
-			'gather':{'fruit':1,'herb':3},
+			'gather':{'fruit':1,'herb':2, 'water':0.25, 'muddy water':0.25},
 		},
 		affectedBy:['scarce forageables'],
 		mult:10,
@@ -3667,8 +3668,8 @@ func:function()
 		desc:'[wild rabbits] are quick and hard to catch, and yield a little [meat], [bone]s and [hide]s.//Carcasses can sometimes be gathered for [spoiled food].',
 		icon:[0,11],
 		res:{
-			'gather':{'spoiled food':0.5},
-			'hunt':{'meat':2,'bone':0.2,'hide':0.2},
+			'gather':{'spoiled food':0.5,'bone':0.1,'hide':0.03},
+			'hunt':{'meat':2,'bone':0.2,'hide':0.3},
 		},
 		affectedBy:['over hunting'],
 		mult:5,
@@ -3678,8 +3679,8 @@ func:function()
 		desc:'Besides being a source of high-quality [hide,Furs], these carnivorous mammals can provide [meat] and [bone]s.//Carcasses can sometimes be gathered for [spoiled food].',
 		icon:[1,11],
 		res:{
-			'gather':{'spoiled food':0.5},
-			'hunt':{'meat':2,'bone':0.2,'hide':1},
+			'gather':{'spoiled food':0.5,'bone':0.1,'hide':0.03},
+			'hunt':{'meat':2,'bone':0.2,'hide':0.3},
 		},
 		affectedBy:['over hunting'],
 		mult:5,
@@ -3689,8 +3690,8 @@ func:function()
 		desc:'While they are placid leaf-eaters, these tree-dwelling mammals have been rumored to drop down on unsuspecting passersby. They can be hunted for [meat], [bone]s and [hide]s.//Carcasses can sometimes be gathered for [spoiled food].',
 		icon:[2,11],
 		res:{
-			'gather':{'spoiled food':0.5},
-			'hunt':{'meat':2,'bone':0.2,'hide':0.2},
+			'gather':{'spoiled food':0.5,'bone':0.1,'hide':0.03},
+			'hunt':{'meat':2,'bone':0.2,'hide':0.3},
 		},
 		affectedBy:['over hunting'],
 		mult:5,
@@ -3700,8 +3701,8 @@ func:function()
 		desc:'Forest herbivores that live in herds; good source of [meat], [bone]s and [hide]s.//Carcasses can sometimes be gathered for [spoiled food].',
 		icon:[3,11],
 		res:{
-			'gather':{'spoiled food':1},
-			'hunt':{'meat':4,'bone':1,'hide':0.6},
+			'gather':{'spoiled food':1,'bone':0.3,'hide':0.09},
+			'hunt':{'meat':3,'bone':0.6,'hide':0.9},
 		},
 		affectedBy:['over hunting'],
 		mult:5,
@@ -3711,8 +3712,8 @@ func:function()
 		desc:'Large omnivorous mammals that hibernate in cold seasons; fearsome in battle. Yield plenty of [meat], [bone]s and large [hide]s.//Carcasses can sometimes be gathered for [spoiled food].',
 		icon:[5,11],
 		res:{
-			'gather':{'spoiled food':1},
-			'hunt':{'meat':4,'bone':1,'hide':1},
+			'gather':{'spoiled food':2.5,'bone':0.75,'hide':0.15},
+			'hunt':{'meat':10,'bone':1.5,'hide':1.5},
 		},
 		affectedBy:['over hunting'],
 		mult:5,
@@ -3722,8 +3723,8 @@ func:function()
 		desc:'Large omnivorous mammals that live in snowy regions; fierce hunters. Yield plenty of [meat], [bone]s and large [hide]s.//Carcasses can sometimes be gathered for [spoiled food].',
 		icon:[10,11],
 		res:{
-			'gather':{'spoiled food':1},
-			'hunt':{'meat':4,'bone':1,'hide':1},
+			'gather':{'spoiled food':2.5,'bone':0.75,'hide':0.15},
+			'hunt':{'meat':10,'bone':1.5,'hide':1.5},
 		},
 		affectedBy:['over hunting'],
 		mult:5,
@@ -3733,8 +3734,8 @@ func:function()
 		desc:'Omnivorous mammals armed with tusks; provide [meat], [bone]s and [hide]s.//Carcasses can sometimes be gathered for [spoiled food].',
 		icon:[4,11],
 		res:{
-			'gather':{'spoiled food':1},
-			'hunt':{'meat':3,'bone':1,'hide':0.5},
+			'gather':{'spoiled food':1,'bone':0.3,'hide':0.09},
+			'hunt':{'meat':3,'bone':0.6,'hide':0.9},
 		},
 		affectedBy:['over hunting'],
 		mult:5,
@@ -3744,8 +3745,8 @@ func:function()
 		desc:'These sly hunters can be butchered for [meat], [bone]s and [hide]s.//Carcasses can sometimes be gathered for [spoiled food].',
 		icon:[6,11],
 		res:{
-			'gather':{'spoiled food':0.5},
-			'hunt':{'meat':2,'bone':0.2,'hide':0.5},
+			'gather':{'spoiled food':0.5,'bone':0.1,'hide':0.03},
+			'hunt':{'meat':2,'bone':0.2,'hide':0.3},
 		},
 		affectedBy:['over hunting'],
 		mult:5,
@@ -3755,8 +3756,8 @@ func:function()
 		desc:'Ferocious carnivores that hunt in packs; a dangerous source of [meat], [bone]s and [hide]s.//Carcasses can sometimes be gathered for [spoiled food].',
 		icon:[7,11],
 		res:{
-			'gather':{'spoiled food':0.5},
-			'hunt':{'meat':3,'bone':0.5,'hide':0.5},
+			'gather':{'spoiled food':1,'bone':0.3,'hide':0.09},
+			'hunt':{'meat':3,'bone':0.6,'hide':0.9},
 		},
 		affectedBy:['over hunting'],
 		mult:5,
@@ -3766,8 +3767,8 @@ func:function()
 		desc:'Carnivorous semi-aquatic mammal; provides [meat], [bone]s and [hide]s.//Carcasses can sometimes be gathered for [spoiled food].',
 		icon:[9,11],
 		res:{
-			'gather':{'spoiled food':1},
-			'hunt':{'meat':3,'bone':0.5,'hide':0.5},
+			'gather':{'spoiled food':1,'bone':0.3,'hide':0.09},
+			'hunt':{'meat':3,'bone':0.6,'hide':0.9},
 		},
 		affectedBy:['over hunting'],
 		mult:5,
@@ -3788,7 +3789,7 @@ func:function()
 		desc:'Fish of every size and color.//A source of [seafood].',
 		icon:[11,11],
 		res:{
-			'gather':{'seafood':0.03},
+			'gather':{'seafood':0.05},
 			'fish':{'seafood':3},
 		},
 		affectedBy:['over fishing'],
@@ -3799,7 +3800,7 @@ func:function()
 		desc:'Fish that live in streams and rivers.//A source of [seafood].',
 		icon:[12,11],
 		res:{
-			'gather':{'seafood':0.03},
+			'gather':{'seafood':0.05},
 			'fish':{'seafood':3},
 		},
 		affectedBy:['over fishing'],
@@ -3823,7 +3824,7 @@ func:function()
 		desc:'Skittish crustaceans that walk sideways.//A source of [seafood].',
 		icon:[0,0],
 		res:{
-			'gather':{'seafood':0.1},
+			'gather':{'seafood':0.5},
 			'fish':{'seafood':2},
 		},
 		affectedBy:['over fishing'],
@@ -3835,9 +3836,9 @@ func:function()
 		desc:'A [rocky substrate] is found underneath most terrain types.//Surface [stone]s may be gathered by hand.//Digging often produces [mud], more [stone]s and occasionally [copper ore,Ores] and [clay].//Mining provides the best results, outputting a variety of [stone]s, rare [gold ore,Ores], and precious [gems].',
 		icon:[11,10],
 		res:{
-			'gather':{'stone':0.25,'clay':0.005,'limestone':0.005},
-			'dig':{'mud':2,'clay':0.15,'stone':0.6,'copper ore':0.01,'tin ore':0.01,'limestone':0.1,'salt':0.05},
-			'mine':{'stone':1,'copper ore':0.1,'tin ore':0.1,'iron ore':0.05,'gold ore':0.005,'coal':0.1,'salt':0.1,'gems':0.005},
+			'gather':{'stone':0.25,'clay':0.01,'limestone':0.005},
+			'dig':{'mud':2,'clay':0.20,'stone':0.5,'copper ore':0.01,'tin ore':0.01,'limestone':0.1,'salt':0.05},
+			'mine':{'stone':1,'copper ore':0.1,'tin ore':0.1,'iron ore':0.05,'gold ore':0.005,'coal':0.1,'salt':0.15,'gems':0.005},
 			'quarry':{'cut stone':1,'limestone':0.5,'marble':0.01},
 		},
 		affectedBy:['mineral depletion'],
@@ -4014,7 +4015,7 @@ func:function()
 		var seaTiles=[];
 		var fit=false;
 		i=0;
-		while (i<20 && fit==false)//discard any map with less than 30% or more than 50% land
+		while (i<20 && fit==false)//discard any map with less than 35% or more than 60% land
 		{
 			var lvl=generate(w,h);
 			
@@ -4029,7 +4030,7 @@ func:function()
 				}
 			}
 			var total=landTiles.length+seaTiles.length;
-			if (landTiles.length/total>=0.3 && landTiles.length/total<=0.6) fit=true;
+			if (landTiles.length/total>0.34 && landTiles.length/total<0.61) fit=true;
 			i++;
 		}
 		
